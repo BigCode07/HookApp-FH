@@ -1,27 +1,21 @@
-import React, { useEffect } from "react";
-import { todoReducer } from "./todoReducer";
 import TodoList from "./TodoList";
 import TodoAdd from "./TodoAdd";
-
-const initialState = [];
-
-const init = () => {
-  return JSON.parse(localStorage.getItem("state")) || [];
-};
+import { useTodos } from "../hooks";
 
 export default function TodoApp() {
-  const { state, handleNewTodo, handleDeleteTodo, handleToggleTodo } =
-    todoReducer;
-
-  //lo que se esta realizando aca es la operacion para guardar los elementos una vez que se cierra la pagina
-  useEffect(() => {
-    localStorage.setItem("state", JSON.stringify(state));
-  }, [state]);
+  const {
+    state,
+    todosCount,
+    pendingTodosCount,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleToggleTodo,
+  } = useTodos();
 
   return (
     <div>
       <h1>
-        Todo App : 10, <small>pendientes: 2</small>
+        Todo App : {todosCount}, <small>pendientes: {pendingTodosCount}</small>
       </h1>
       <hr />
 
