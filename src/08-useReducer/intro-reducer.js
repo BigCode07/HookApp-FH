@@ -26,6 +26,38 @@ const addTodoAction = {
   payload: newTodo,
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 todos = todoReducer(todos, addTodoAction);
 
 console.log({ state: todos });
