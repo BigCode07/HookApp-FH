@@ -3,9 +3,10 @@ import { HomePage } from "./HomePage.jsx";
 import { AboutPage } from "./AboutPage.jsx";
 import { LoginPage } from "./LoginPage.jsx";
 import Navbar from "./Navbar.jsx";
+import UserProvider from "./context/UserProvider.jsx";
 export default function MainApp() {
   return (
-    <>
+    <UserProvider>
       <Navbar />
       <hr />
 
@@ -17,6 +18,6 @@ export default function MainApp() {
         {/* <Route path="/*" element={<LoginPage />} /> */}
         <Route path="/*" element={<Navigate to="/about" />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
